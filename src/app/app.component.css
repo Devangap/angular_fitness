@@ -1,0 +1,77 @@
+/* app.component.css */
+.body{
+  background-color: #0000;
+}
+/* Navbar styling */
+.navbar {
+  background-color: #f8f9fa; /* Light background color */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #343a40; /* Dark text color */
+}
+
+.navbar-nav .nav-item .form-control {
+  width: 300px; /* Adjust search input width */
+}
+
+/* Container and card styling */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.trainer-card {
+  width: 300px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.trainer-card:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.trainer-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.trainer-details {
+  padding: 15px;
+}
+
+/* Modal styling */
+.modal-content {
+  background-color: #fff; /* White background for modals */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #343a40; /* Dark text color */
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  justify-content: space-between;
+}
+
+/* Glass effect for cards */
+.glass1 {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 10px;
+}
+.button-group {
+  margin-top: 10px; /* Add space above the button group */
+}
+
+.button-group button {
+  margin-right: 10px; /* Add space between buttons */
+}
