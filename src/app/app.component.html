@@ -80,6 +80,8 @@
               <label for="experience">Experience (years)</label>
               <input type="number" class="form-control" id="experience" ngModel name="experience" required>
             </div>
+            <button type="button" id="add-trainer-form" class="btn btn-secondary" data-dismiss="modal" hidden>Close</button>
+
             <button [disabled] = "addForm.invalid"  type="submit" class="btn btn-primary">Add Trainer</button>
           </form>
         </div>
@@ -130,7 +132,7 @@
             <label for="editExperience">Experience (years)</label>
             <input type="number" class="form-control" id="editExperience" ngModel="{{editTrainer?.experience}}" name="experience" required>
           </div>
-          <button (click) = "onEditTrainer(editForm.value)" type="submit" class="btn btn-primary">Save Changes</button>
+          <button data-dismiss="modal" (click) = "onEditTrainer(editForm.value)" type="submit" class="btn btn-primary">Save Changes</button>
         </form>
       </div>
     </div>
@@ -153,7 +155,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button *ngIf="deleteTrainer" (click)="onDeleteTrainer(deleteTrainer.id)" type="button" class="btn btn-danger">Delete</button>
+          <button *ngIf="deleteTrainer" data-dismiss="modal" (click)="onDeleteTrainer(deleteTrainer.id)" type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>

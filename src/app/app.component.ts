@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Trainer } from './trainer';
@@ -45,45 +46,41 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public onAddTrainer(addForm : NgForm):void{
-    this.trainerservice.addTrainer(addForm.value).subscribe(
-      (response: Trainer) => {
-        console.log(response)
-        this.getTrainer();
-        addForm.reset();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.reset();
-      }
-    );
+  public onAddTrainer(addForm: NgForm): void {
+  document.getElementById('add-trainer-form')?.click();
+  if (addForm.invalid) {
+    alert('Please fill out the form correctly.');
+    return;
   }
+  this.trainerservice.addTrainer(addForm.value).subscribe(
+    (response: Trainer) => {
+      console.log(response);
+      this.getTrainer();
+      addForm.reset();
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+      addForm.reset();
+    }
+  );
+}
 
-  public onUpdateTrainer(trainer : Trainer):void{
-    this.trainerservice.updateTrainer(trainer).subscribe(
-      (response: Trainer) => {
-        console.log(response)
-        this.getTrainer();
-       
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      
-      }
-    );
+public onEditTrainer(trainer: Trainer): void {
+  if (!trainer || !trainer.id) {
+    alert('Invalid trainer data.');
+    return;
   }
-  
-  public onEditTrainer(trainer : Trainer):void{
-    this.trainerservice.updateTrainer(trainer).subscribe(
-      (response: Trainer) => {
-        console.log(response)
-        this.getTrainer();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  this.trainerservice.updateTrainer(trainer).subscribe(
+    (response: Trainer) => {
+      console.log(response);
+      this.getTrainer();
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  );
+}
+
   public onDeleteTrainer(trainerId : number):void{
     this.trainerservice.deleteTrainer(trainerId).subscribe(
       (response: void) => {
